@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Searchable Forms</title>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="js/controllers.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+  	a:hover{text-decoration:none;} 
+  </style>
+</head>
+<body>
+	<div class="well">MBSI From Search Application</div>
+<div class="main col-sm-8" ng-controller = "MyController">
+  <div>
+    <h1>Form Directory</h1>
+    <label>search: </label>
+    <input ng-model="query" placeholder="Search for Forms" autofocus>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="items in forms | filter: query">
+      <a href="{{items.link}}" target="_blank"><div>
+        <h2>{{items.name}}</h2>
+        <h4>{{items.description}}</h4>
+        <h6>{{items.category}}</h6>
+        <h6><a href="{{items.link}}">Form Link</a></h6>
+      </div></a>
+    </li>
+  </ul>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="lib/bootstrap/bootstrap.js"></script>
+</body>
+</html>
